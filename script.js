@@ -25,8 +25,8 @@ function showProject(projectId) {
         projectVideo.src = "img&vid/tictac-web-video.mp4"; 
         githubLink.href = "https://github.com/vivek-jain-17/tic-tac-toe.git";
     } else if (projectId === "project4") {
-        projectVideo.src = "xyz.mp4"; 
-        githubLink.href = "https://github.com/your-repo/project2";
+        projectVideo.src = "img&vid/portfolio-video.mp4"; 
+        githubLink.href = "https://github.com/vivek-jain-17/Portfolio.git";
     }
 
     projectDetails.classList.remove("hidden");

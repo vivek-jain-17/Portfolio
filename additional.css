@@ -1,0 +1,129 @@
+#splash-screen {
+    position: fixed;
+    top: 0px;
+    left: 0;
+    width: 1600px;
+    height: 100%;
+    background: linear-gradient(135deg, #428bff, #ff59e8);
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    z-index: 1000;
+    margin: 0;
+    padding:0;
+}
+.logo-container h1 {
+    font-size: 4rem; 
+    font-weight: bold;
+    color: white;
+    text-align: center; 
+    margin: 0; 
+    animation: fadeIn 1.5s ease-in-out; 
+}
+
+@keyframes fadeIn {
+    0% {
+        opacity: 0;
+        transform: scale(0.8);
+    }
+    100% {
+        opacity: 1;
+        transform: scale(1);
+    }
+}
+
+.education {
+    padding: 3rem 0;
+}
+.edu-grid {
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    gap: 1.5rem;
+}
+
+.edu-card {
+    background: rgba(255, 255, 255, 0.1);
+    padding: 1rem;
+    margin: 1rem;
+    border-radius: 1rem;
+    height: 190px;
+    line-height:0.8;
+}
+.edu-cardse {
+    background: rgba(255, 255, 255, 0.1);
+    padding: 1rem;
+    margin: 1rem;
+    border-radius: 1rem;
+    height: 210px;
+    line-height:0.8;
+}
+.edu-cardug {
+    background: rgba(255, 255, 255, 0.1);
+    padding: 1rem;
+    margin: 1rem;
+    border-radius: 1rem;
+    height: 215px;
+    line-height:0.8;
+}
+.edu-icon {
+    font-size: 2.3rem;
+    margin-top: 0rem;
+    text-decoration: none;
+    color: white;
+}
+.edu-title {
+    font-size: 1.5rem;
+    text-decoration: none;
+}
+.edu-description {
+    font-size: 0.9rem;
+    text-decoration: none;
+    line-height: 1.1;
+}
+
+.edu-card:hover {
+    transform: translateX(+10px);
+}
+.edu-cardug:hover {
+    transform: translateY(+10px);
+}
+.edu-cardse:hover {
+    transform: translateX(-10px);
+}
+
+@media (max-width: 768px) {
+    .nav-links {
+        display: none;
+    }
+    .edu-grid {
+            grid-template-columns: 1fr;
+        }
+    
+}
+@media (min-width:769px) and (max-width:795px) {
+    .edu-grid {
+        grid-template-columns: 1fr 1fr;
+    }
+}
+@media (min-width:796px) and (max-width:913px) {
+    .edu-cardse {
+        height: 250px;
+    }
+    .edu-cardug {
+        height: 265px;
+    }
+}
+@media (min-width:1100px) {
+    .edu-cardse {
+        height: 190px;
+    }
+    .edu-cardug {
+        height: 190px;
+    }
+    .edu-card {
+        height: 190px;
+    }
+}
+
+
+

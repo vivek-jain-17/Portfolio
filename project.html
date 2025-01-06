@@ -1,0 +1,92 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Projects</title>
+    <link rel="stylesheet" href="project.css">
+    <link rel="stylesheet" href="styles.css">
+</head>
+<body>
+    <div class="bubbles"></div>
+    <nav>
+        <div class="nav-bar">
+            <div class="logo">
+             Portfolio
+            </div>
+            <div class="nav-links">
+                <a href="portfolio1.html">HOME</a>
+                <a href="#" class="abt">ABOUT
+                    <div class="abt-text">I am quick learner and an explorative person who has a passion for learning. Known for my leadership qualities, understanding, critical thinking, work ethic and thrive for learning. Loading myself with experience of teaching, marketing, management & coding skills.</div>
+                </a>
+                <a href="#skills">SKILLS</a>
+                <a href="project.html">PROJECTS</a>
+                <a href="portfolio1.html#Experiences">EXPERIENCES</a>
+                <a href="portfolio1.html#extracurricular">EXTRACURRICULAR</a>
+            </div>
+            <div class="btn">
+                <button id="btn-link"><a href="portfolio1.html#contact">CONTACT</a></button>
+            </div>
+        </div>
+    </nav>
+    <div id="splash-screen">
+        <div class="logo-container">
+            <h1>🚀</h1>
+        </div>
+    </div>
+    <main id="main-content">
+        <div class="projects-container">
+            <h1>My Projects</h1>
+            <div class="projects-grid">
+                
+                <div class="project-box" onclick="showProject('project1')">
+                    <h2>To-Do-List</h2>
+                    <p>My first ever Web devlopment Project<br>
+                        With this app, one can effortlessly:<br>
+                        - ✏️ Add your tasks and goals<br>
+                        - 🔄 Edit them to perfection<br>
+                        - 🗑️ Delete what's no longer needed<br>
+                        - ✔️ Mark tasks as completed with a satisfying checkmark.<br>
+                        <h6>(in constant development)</h6>
+                    </p>
+                </div>
+                
+                <div class="project-box" onclick="showProject('project2')">
+                    <h2>Blog Website </h2>
+                    <p>A very dynamin and engaging website where one can effectively view blog, and give comments.<br>
+                        <h6>(in constant development)</h6>
+                    </p>
+                </div>
+                <div class="project-box" onclick="showProject('project3')">
+                    <h2>Tic-Tac-Toe</h2>
+                    <p>A functional Tic-Tac-Toe ❌⭕❌⭕ game.<br>
+                        <h6>(in constant development)</h6>
+                    </p>
+                </div>
+                <div class="project-box" onclick="showProject('project4')">
+                    <h2>My Personal Portfolio</h2>
+                    <p>"A personal portfolio website showcasing my skills and projects in Artificial Intelligence, Data Science, and Web Development. It features a clean, modern design with interactive sections that highlight my expertise, education, work, and contact information, providing a comprehensive view of my professional journey."</p>
+                </div>
+            </div>
+        </div>
+
+        <div id="project-details" class="project-details hidden">
+            <video id="project-video" controls></video>
+            <a id="github-link" href="#" target="_blank">View on GitHub</a>
+            <button onclick="closeProject()">Close</button>
+        </div>
+    </main>
+    <div id="other-prj">
+        <h1>Other Projects</h1>
+        <ul>
+            <li>Contibuted in DMX RGIT's website</li><li>Contributed in E-CELL Rgit's website</li><li>Heart Attack Risk Prediction system <a href ="project.html"><button  id="quality-btn"></button></a> </li>
+        </ul>
+    </div>
+    <div id="skills">
+        <h1>My Skills (Technical and Non-Technical)</h1>
+        <ul>
+            <li>HTML&CSS</li><li>JavaScript</li><li>Python(Django)</li><li>Marketing</li><li>Management & Research <a href ="project.html"><button  id="quality-btn"></button></a> </li>
+        </ul>
+    <script src="script.js"></script>
+</body>
+</html>

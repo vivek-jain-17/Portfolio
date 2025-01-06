@@ -16,16 +16,16 @@ function showProject(projectId) {
 
     
     if (projectId === "project1") {
-        projectVideo.src = "img&vid/to-do-web-video.mp4"; 
+        projectVideo.src = "img_vid/to-do-web-video.mp4"; 
         githubLink.href = "https://github.com/vivek-jain-17/to-do-list.git";
     } else if (projectId === "project2") {
-        projectVideo.src = "img&vid/blog-web-video.mp4"; 
+        projectVideo.src = "img_vid/blog-web-video.mp4"; 
         githubLink.href = "https://github.com/vivek-jain-17/Bloggigng-Site.git";
     } else if (projectId === "project3") {
-        projectVideo.src = "img&vid/tictac-web-video.mp4"; 
+        projectVideo.src = "img_vid/tictac-web-video.mp4"; 
         githubLink.href = "https://github.com/vivek-jain-17/tic-tac-toe.git";
     } else if (projectId === "project4") {
-        projectVideo.src = "img&vid/portfolio-video.mp4"; 
+        projectVideo.src = "img_vid/portfolio-video.mp4"; 
         githubLink.href = "https://github.com/vivek-jain-17/Portfolio.git";
     }
 

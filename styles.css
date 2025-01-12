@@ -310,7 +310,7 @@ nav {
             display: block !important;
         }
         .dropdown-menu {
-            background: linear-gradient(to right, #428bff, #ff59e8) !important;
+            background: linear-gradient(90deg, #2a1846 0%, #1a1c3d 50%, #17495a 100%) !important;
             font-weight: bold !important;
             -webkit-background-clip: text !important;
             background-clip: text !important;
@@ -329,7 +329,7 @@ nav {
         }
         .abt-text {
             display: none; 
-            background: linear-gradient(135deg, #2a1846 0%, #1a1c3d 50%, #17495a 100%);
+            background: linear-gradient(90deg, #2a1846 0%, #1a1c3d 50%, #17495a 100%);
             color: rgb(177, 187, 187);
             padding: 10px;
             border-radius: 8px;

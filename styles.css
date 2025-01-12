@@ -340,5 +340,6 @@ nav {
             .dropdown-item {
                 color: black !important;
                 text-shadow: gray !important;
+                font-weight: bolder !important;
             }
 }

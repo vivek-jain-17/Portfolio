@@ -56,3 +56,21 @@ document.addEventListener("DOMContentLoaded", () => {
         bubbleContainer.appendChild(bubble);
     }
 });
+document.addEventListener("DOMContentLoaded", () => {
+    const aboutLink = document.getElementById("about-link");
+    const aboutText = document.getElementById("about-text");
+
+    aboutLink.addEventListener("click", (e) => {
+        e.preventDefault(); 
+        if (aboutText.style.display === "block") {
+            aboutText.style.display = "none";
+        } else {
+            aboutText.style.display = "block"; 
+        }
+    });
+});
+
+
+
+
+

@@ -27,7 +27,10 @@ function showProject(projectId) {
     } else if (projectId === "project4") {
         projectVideo.src = "img_vid/portfoliowbubble.mp4"; 
         githubLink.href = "https://github.com/vivek-jain-17/Portfolio.git";
-    }
+    } else if (projectId === "project5") {
+        projectVideo.src = "img_vid/alien_game1.mp4"; 
+        githubLink.href = "https://github.com/vivek-jain-17/Alien-Attack.git"; 
+    } 
 
     projectDetails.classList.remove("hidden");
 }

@@ -1,0 +1,147 @@
+/* Smooth Scrollbar */
+::-webkit-scrollbar {
+    width: 10px;
+}
+::-webkit-scrollbar-track {
+    background: #0f172a;
+}
+::-webkit-scrollbar-thumb {
+    background: linear-gradient(to bottom, #3b82f6, #ec4899);
+    border-radius: 5px;
+    border: 2px solid #0f172a;
+}
+
+/* Base Styles */
+body {
+    -webkit-font-smoothing: antialiased;
+}
+
+/* Utility */
+.hidden {
+    display: none;
+}
+
+/* =========================================
+   🔥 Advanced Scroll Animation States
+   ========================================= */
+
+/* Initial State (Hidden) */
+.reveal {
+    opacity: 0;
+    /* Slide up and scale down slightly */
+    transform: translateY(50px) scale(0.95);
+    filter: blur(10px);
+    transition: all 0.8s cubic-bezier(0.25, 0.46, 0.45, 0.94); /* Smooth custom easing */
+}
+
+/* Final State (Visible - Added by JS) */
+.reveal.active {
+    opacity: 1;
+    transform: translateY(0) scale(1);
+    filter: blur(0);
+}
+
+/* Stagger Delays */
+.reveal.st-1 { transition-delay: 0.1s; }
+.reveal.st-2 { transition-delay: 0.2s; }
+.reveal.st-3 { transition-delay: 0.3s; }
+.reveal.st-4 { transition-delay: 0.4s; }
+
+
+/* Navigation Transitions for SPA feel */
+.page-section {
+    animation: sectionFadeIn 0.6s ease-out forwards;
+}
+
+@keyframes sectionFadeIn {
+    from { opacity: 0; transform: translateY(20px); filter: blur(5px); }
+    to { opacity: 1; transform: translateY(0); filter: blur(0); }
+}
+
+
+
+/* =========================================
+   ⚡ Rising Tech Particles (Digital Embers)
+   ========================================= */
+
+#tech-particles {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    z-index: -10;
+    /* Changed to a much darker gradient */
+    background: radial-gradient(circle at 50% 50%, #0a0a1f 0%, #000000 100%);
+}
+
+.tech-particle {
+    position: absolute;
+    bottom: -10px;
+    background-color: transparent;
+    box-shadow: 0 0 10px 2px currentColor;
+    opacity: 0;
+    animation: riseUp linear forwards;
+}
+
+@keyframes riseUp {
+    0% {
+        opacity: 0;
+        transform: translateY(0) scale(0.5);
+    }
+    10% {
+        opacity: 0.8; /* Fade in quickly */
+    }
+    100% {
+        opacity: 0;
+        transform: translateY(-120vh) scale(1.2); /* Move up past screen height */
+    }
+}
+
+
+/* =========================================
+   🖱️ Custom Sci-Fi Cursor
+   ========================================= */
+
+/* 1. Hide the default browser cursor */
+body, a, button, input {
+    cursor: none !important;
+}
+
+/* 2. The Inner Pointer (Small Solid Diamond) */
+#cursor-dot {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 8px;
+    height: 8px;
+    background-color: #3b82f6; /* Electric Blue */
+    transform: translate(-50%, -50%) rotate(45deg); /* Diamond shape */
+    pointer-events: none; /* Let clicks pass through */
+    z-index: 9999;
+    box-shadow: 0 0 10px #3b82f6;
+}
+
+/* 3. The Outer Trailer (Larger Glowing Ring) */
+#cursor-outline {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 40px;
+    height: 40px;
+    border: 1px solid rgba(236, 72, 153, 0.5); /* Neon Pink Border */
+    transform: translate(-50%, -50%) rotate(45deg); /* Diamond shape */
+    pointer-events: none;
+    z-index: 9998;
+    transition: width 0.2s, height 0.2s, background-color 0.2s; /* Smooth expand animation */
+    box-shadow: 0 0 15px rgba(236, 72, 153, 0.2);
+}
+
+/* 4. Hover State (When hovering over links/buttons) */
+body.hovering #cursor-outline {
+    width: 60px;
+    height: 60px;
+    background-color: rgba(59, 130, 246, 0.1); /* Blue tint inside */
+    border-color: #3b82f6;
+    box-shadow: 0 0 30px rgba(59, 130, 246, 0.4);
+}

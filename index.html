@@ -1,0 +1,764 @@
+<!DOCTYPE html>
+<html lang="en" class="scroll-smooth">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Portfolio | System Online</title>
+    
+    <script src="https://cdn.tailwindcss.com"></script>
+    
+    <link href="https://fonts.googleapis.com/css2?family=Space+Grotesk:wght@300;500;700&family=Inter:wght@300;400;600&family=JetBrains+Mono&display=swap" rel="stylesheet">
+    
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+
+    <link rel="stylesheet" href="styles.css">
+
+    <script>
+        tailwind.config = {
+            theme: {
+                extend: {
+                    colors: {
+                        navy: '#02040a',       
+                        electricBlue: '#3b82f6',
+                        neonPink: '#ec4899',
+                        glass: 'rgba(0, 2, 10, 0.4)'
+                    },
+                    fontFamily: {
+                        sans: ['Inter', 'sans-serif'],
+                        display: ['Space Grotesk', 'sans-serif'],
+                        mono: ['JetBrains Mono', 'monospace'],
+                    },
+                    backgroundImage: {
+                        'circuit-pattern': "url(\"data:image/svg+xml,%3Csvg width='100' height='100' viewBox='0 0 100 100' xmlns='http://www.w3.org/2000/svg'%3E%3Cpath d='M10 10 L90 10 L90 90 L10 90 Z' fill='none' stroke='rgba(59, 130, 246, 0.1)' stroke-width='1'/%3E%3Ccircle cx='10' cy='10' r='2' fill='rgba(59, 130, 246, 0.2)'/%3E%3Ccircle cx='90' cy='90' r='2' fill='rgba(236, 72, 153, 0.2)'/%3E%3Cpath d='M10 10 L30 30 M90 10 L70 30 M10 90 L30 70 M90 90 L70 70' stroke='rgba(255,255,255,0.05)'/%3E%3C/svg%3E\")",
+                    }
+                }
+            }
+        }
+    </script>
+</head>
+<body class="bg-navy text-slate-200 font-sans overflow-x-hidden selection:bg-electricBlue selection:text-white relative">
+    <div id="tech-particles" class="fixed inset-0 pointer-events-none -z-10 overflow-hidden"></div>
+    <div id="cursor-glow" class="fixed w-[400px] h-[400px] bg-electricBlue/20 rounded-full blur-[100px] pointer-events-none -translate-x-1/2 -translate-y-1/2 z-0 mix-blend-screen transition-transform duration-100 ease-out"></div>
+    <div id="cursor-dot"></div>
+    <div id="cursor-outline"></div>
+    
+    <div class="parallax-blob fixed top-[-10%] left-[-10%] w-[500px] h-[500px] bg-electricBlue/10 blur-[100px] rounded-full -z-10" data-speed="0.2"></div>
+    <div class="parallax-blob fixed bottom-[-10%] right-[-10%] w-[400px] h-[400px] bg-neonPink/10 blur-[100px] rounded-full -z-10" data-speed="-0.15"></div>
+
+    <div id="intro-overlay" class="fixed inset-0 z-50 flex items-center justify-center bg-navy">
+        <div class="relative overflow-hidden text-center">
+            <div class="font-mono text-electricBlue text-sm mb-4 opacity-0" id="terminal-loader">
+                > ESTABLISHING NEURAL LINK...<br>
+                > ACCESSING MAINFRAME...
+            </div>
+            <h1 class="text-4xl md:text-6xl font-display font-bold text-white tracking-wider opacity-0" id="intro-text">
+                SYSTEM <span class="text-transparent bg-clip-text bg-gradient-to-r from-electricBlue to-neonPink">ONLINE</span>
+            </h1>
+            <div class="intro-line h-[2px] bg-gradient-to-r from-electricBlue to-neonPink w-0 mt-6 mx-auto"></div>
+        </div>
+    </div>
+
+    <nav class="fixed top-0 w-full z-40 bg-navy/80 backdrop-blur-xl border-b border-white/5 transition-all duration-300" id="navbar">
+        <div class="max-w-7xl mx-auto px-6 py-4 flex justify-between items-center">
+            <div class="text-xl font-display font-bold text-white cursor-pointer tracking-tight" onclick="navigateTo('home')">
+                // VIVEK<span class="text-electricBlue">JAIN</span>_
+            </div>
+            <button id="mobile-menu-btn" class="md:hidden text-white text-2xl">
+                <i class="fas fa-bars"></i>
+            </button>
+            <ul class="hidden md:flex space-x-8 text-sm font-mono text-electricBlue uppercase tracking-widest">
+                <li><a href="#" onclick="navigateTo('home')" class="hover:text-white transition-colors">.home()</a></li>
+                <li><a href="#projects" onclick="navigateTo('projects')" class="hover:text-white transition-colors">.projects()</a></li>
+                <li><a href="#experience" onclick="navigateTo('experience')" class="hover:text-white transition-colors">.exp()</a></li>
+                <li><a href="#extracurricular" onclick="navigateTo('extracurricular')" class="hover:text-white transition-colors">.extra()</a></li>
+            </ul>
+        </div>
+    </nav>
+
+    <main class="pt-24 min-h-screen relative container mx-auto px-6">
+        
+        <section id="home" class="page-section active-section">
+            
+            <div class="min-h-[85vh] flex flex-col-reverse md:flex-row items-center justify-between py-20">
+                <div class="md:w-1/2 space-y-8 mt-10 md:mt-0 z-10">
+                    <div class="reveal inline-block px-4 py-2 bg-electricBlue/10 border border-electricBlue/30 rounded text-electricBlue font-mono text-xs">
+                        > UNIT STATUS: READY TO DEPLOY
+                    </div>
+                    <h1 class="reveal st-1 text-6xl md:text-8xl font-display font-bold leading-none text-white">
+                        BUILD.<br>
+                        BREAK.<br>
+                        <span class="text-transparent bg-clip-text bg-gradient-to-r from-electricBlue to-neonPink">INNOVATE.</span>
+                    </h1>
+                    <p class="reveal st-2 text-xl text-slate-400 max-w-lg leading-relaxed">
+                        Building intelligent systems and scalable web applications. I turn ideas into real products using AI, data, and clean engineering.
+                    </p>
+                    <div class="reveal st-3 flex flex-wrap gap-4 pt-4">
+                        <button onclick="navigateTo('projects')" class="px-8 py-4 bg-electricBlue text-white font-bold font-display rounded hover:bg-blue-600 transition-all shadow-[0_0_30px_rgba(59,130,246,0.4)] hover:shadow-[0_0_40px_rgba(59,130,246,0.6)] transform hover:-translate-y-1">
+                            Explore Creations
+                        </button>
+                        <a href="#contact" class="px-8 py-4 border border-slate-700 text-white font-bold font-display rounded hover:border-electricBlue hover:text-electricBlue transition-all transform hover:-translate-y-1">
+                            Initialize Contact
+                        </a>
+                    </div>
+                </div>
+
+                <div class="md:w-1/2 flex justify-center z-10">
+                    <div class="reveal st-2 relative w-72 h-72 md:w-96 md:h-96">
+                        <div class="absolute inset-0 border-2 border-electricBlue/30 rounded-full animate-[spin_20s_linear_infinite]"></div>
+                        <div class="absolute inset-[20px] border border-neonPink/30 rounded-full animate-[spin_15s_linear_infinite_reverse]"></div>
+                        
+                        <div class="absolute inset-[40px] rounded-full overflow-hidden border-4 border-navy shadow-2xl bg-navy relative group">
+                            <div class="absolute inset-0 bg-circuit-pattern opacity-30 mix-blend-overlay z-10 pointer-events-none"></div>
+                            
+                            <img src="profile.jpeg" 
+                                alt="Profile" 
+                                class="w-full h-full object-cover object-top grayscale group-hover:grayscale-0 transition-all duration-700 group-hover:scale-105">
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <div class="py-10">
+                <div class="grid grid-cols-1 md:grid-cols-3 gap-6">
+                    <div onclick="navigateTo('projects')" class="reveal st-1 group relative p-8 bg-glass border border-white/5 rounded-xl cursor-pointer hover:bg-white/5 transition-all duration-300 hover:border-electricBlue/50 hover:shadow-[0_0_30px_rgba(59,130,246,0.15)]">
+                        <div class="absolute top-0 right-0 p-4 opacity-50 group-hover:opacity-100 transition-opacity">
+                            <i class="fas fa-arrow-right -rotate-45 group-hover:rotate-0 transition-transform duration-300 text-electricBlue"></i>
+                        </div>
+                        <i class="fas fa-code text-4xl text-electricBlue mb-4 drop-shadow-[0_0_10px_rgba(59,130,246,0.6)]"></i>
+                        <h3 class="text-2xl font-display font-bold text-white mb-2">Projects</h3>
+                        <p class="text-slate-400 text-sm">Real-world projects where I apply AI, data, and full-stack development to turn ideas into working products.</p>
+                    </div>
+
+                    <div onclick="navigateTo('experience')" class="reveal st-2 group relative p-8 bg-glass border border-white/5 rounded-xl cursor-pointer hover:bg-white/5 transition-all duration-300 hover:border-neonPink/50 hover:shadow-[0_0_30px_rgba(236,72,153,0.15)]">
+                        <div class="absolute top-0 right-0 p-4 opacity-50 group-hover:opacity-100 transition-opacity">
+                            <i class="fas fa-arrow-right -rotate-45 group-hover:rotate-0 transition-transform duration-300 text-neonPink"></i>
+                        </div>
+                        <i class="fas fa-briefcase text-4xl text-neonPink mb-4 drop-shadow-[0_0_10px_rgba(236,72,153,0.6)]"></i>
+                        <h3 class="text-2xl font-display font-bold text-white mb-2">Experience</h3>
+                        <p class="text-slate-400 text-sm">Hackathons, events, and initiatives where I explore ideas, collaborate with people, and grow beyond just writing code.</p>
+                    </div>
+
+                    <div onclick="navigateTo('extra')" class="reveal st-3 group relative p-8 bg-glass border border-white/5 rounded-xl cursor-pointer hover:bg-white/5 transition-all duration-300 hover:border-purple-500/50 hover:shadow-[0_0_30px_rgba(168,85,247,0.15)]">
+                        <div class="absolute top-0 right-0 p-4 opacity-50 group-hover:opacity-100 transition-opacity">
+                            <i class="fas fa-arrow-right -rotate-45 group-hover:rotate-0 transition-transform duration-300 text-purple-500"></i>
+                        </div>
+                        <i class="fas fa-trophy text-4xl text-purple-500 mb-4 drop-shadow-[0_0_10px_rgba(168,85,247,0.6)]"></i>
+                        <h3 class="text-2xl font-display font-bold text-white mb-2">Side Quests</h3>
+                        <p class="text-slate-400 text-sm">Hackathons, communities, and events beyond the code.</p>
+                    </div>
+                </div>
+            </div>
+
+            <div class="py-32">
+                <h3 class="reveal text-3xl font-display font-bold mb-16 text-white text-center">Technical <span class="text-electricBlue">Arsenal</span></h3>
+                <div class="grid grid-cols-2 md:grid-cols-4 gap-8">
+                    <!-- Frontend -->
+                    <div class="reveal st-1 p-6 border border-white/10 bg-glass backdrop-blur-sm rounded-xl
+                                hover:border-electricBlue/60 hover:shadow-[0_0_20px_rgba(59,130,246,0.2)]
+                                transition-all duration-300 group text-center flex flex-col items-center justify-center h-48">
+                        <div class="w-16 h-16 bg-navy rounded-full flex items-center justify-center mb-4
+                                    border border-white/10 group-hover:border-electricBlue transition-colors">
+                            <i class="fab fa-html5 text-3xl text-slate-400 group-hover:text-orange-400"></i>
+                        </div>
+                        <h4 class="text-white font-bold tracking-wide">Frontend & Web</h4>
+                        <span class="text-xs text-slate-500 font-mono mt-1">
+                            HTML • CSS • JavaScript • Tailwind
+                        </span>
+                    </div>
+                    <!-- Backend -->
+                    <div class="reveal st-2 p-6 border border-white/10 bg-glass backdrop-blur-sm rounded-xl
+                                hover:border-electricBlue/60 hover:shadow-[0_0_20px_rgba(59,130,246,0.2)]
+                                transition-all duration-300 group text-center flex flex-col items-center justify-center h-48">
+                        <div class="w-16 h-16 bg-navy rounded-full flex items-center justify-center mb-4
+                                    border border-white/10 group-hover:border-electricBlue transition-colors">
+                            <i class="fab fa-python text-3xl text-slate-400 group-hover:text-blue-500"></i>
+                        </div>
+                        <h4 class="text-white font-bold tracking-wide">Backend</h4>
+                        <span class="text-xs text-slate-500 font-mono mt-1">
+                            Python • Django • SQL • PostgreSQL
+                        </span>
+                    </div>
+                    <!-- AI & ML -->
+                    <div class="reveal st-3 p-6 border border-white/10 bg-glass backdrop-blur-sm rounded-xl
+                                hover:border-electricBlue/60 hover:shadow-[0_0_20px_rgba(59,130,246,0.2)]
+                                transition-all duration-300 group text-center flex flex-col items-center justify-center h-48">
+                        <div class="w-16 h-16 bg-navy rounded-full flex items-center justify-center mb-4
+                                    border border-white/10 group-hover:border-electricBlue transition-colors">
+                            <i class="fas fa-brain text-3xl text-slate-400 group-hover:text-purple-400"></i>
+                        </div>
+                        <h4 class="text-white font-bold tracking-wide">AI & Machine Learning</h4>
+                        <span class="text-xs text-slate-500 font-mono mt-1">
+                            ML • AI • Models • Data Science
+                        </span>
+                    </div>
+                    <!-- Payments -->
+                    <div class="reveal st-4 p-6 border border-white/10 bg-glass backdrop-blur-sm rounded-xl
+                                hover:border-electricBlue/60 hover:shadow-[0_0_20px_rgba(59,130,246,0.2)]
+                                transition-all duration-300 group text-center flex flex-col items-center justify-center h-48">
+                        <div class="w-16 h-16 bg-navy rounded-full flex items-center justify-center mb-4
+                                    border border-white/10 group-hover:border-electricBlue transition-colors">
+                            <i class="fas fa-credit-card text-3xl text-slate-400 group-hover:text-green-400"></i>
+                        </div>
+                        <h4 class="text-white font-bold tracking-wide">Payments & APIs</h4>
+                        <span class="text-xs text-slate-500 font-mono mt-1">
+                            Razorpay • Webhooks • Integrations
+                        </span>
+                    </div>
+                    <!-- Core CS -->
+                    <div class="reveal st-5 p-6 border border-white/10 bg-glass backdrop-blur-sm rounded-xl
+                                hover:border-electricBlue/60 hover:shadow-[0_0_20px_rgba(59,130,246,0.2)]
+                                transition-all duration-300 group text-center flex flex-col items-center justify-center h-48">
+                        <div class="w-16 h-16 bg-navy rounded-full flex items-center justify-center mb-4
+                                    border border-white/10 group-hover:border-electricBlue transition-colors">
+                            <i class="fas fa-code text-3xl text-slate-400 group-hover:text-yellow-400"></i>
+                        </div>
+                        <h4 class="text-white font-bold tracking-wide">Core Programming</h4>
+                        <span class="text-xs text-slate-500 font-mono mt-1">
+                            C • C++ • DSA
+                        </span>
+                    </div>
+                    <!-- DevOps -->
+                    <div class="reveal st-6 p-6 border border-white/10 bg-glass backdrop-blur-sm rounded-xl
+                                hover:border-electricBlue/60 hover:shadow-[0_0_20px_rgba(59,130,246,0.2)]
+                                transition-all duration-300 group text-center flex flex-col items-center justify-center h-48">
+                        <div class="w-16 h-16 bg-navy rounded-full flex items-center justify-center mb-4
+                                    border border-white/10 group-hover:border-electricBlue transition-colors">
+                            <i class="fab fa-docker text-3xl text-slate-400 group-hover:text-blue-600"></i>
+                        </div>
+                        <h4 class="text-white font-bold tracking-wide">DevOps & Deployment</h4>
+                        <span class="text-xs text-slate-500 font-mono mt-1">
+                            Docker • Railway • Git
+                        </span>
+                    </div>
+                </div>
+            </div>
+            <div class="py-32 border-t border-white/5 relative">
+                <div class="absolute right-0 top-1/4 w-64 h-64 bg-neonPink/5 blur-[80px] rounded-full pointer-events-none"></div>
+
+                <h3 class="reveal text-3xl font-display font-bold mb-16 text-white text-center">
+                    Academic <span class="text-neonPink">Database</span>
+                </h3>
+                
+                <div class="max-w-3xl mx-auto px-6">
+                    <div class="reveal st-1 relative pl-8 border-l-2 border-white/10 space-y-12">
+                        
+                        <div class="relative group">
+                            <div class="absolute -left-[41px] top-1 w-5 h-5 rounded-full bg-navy border-2 border-neonPink shadow-[0_0_10px_rgba(236,72,153,0.5)] group-hover:scale-125 transition-transform duration-300"></div>
+                            
+                            <div class="p-8 rounded-2xl bg-glass border border-white/5 hover:border-neonPink/40 transition-all duration-300 hover:shadow-[0_0_30px_rgba(236,72,153,0.1)] group-hover:-translate-y-1">
+                                <div class="flex justify-between items-start flex-wrap gap-2 mb-2">
+                                    <h4 class="text-2xl font-bold text-white">Bachelor of Engineering</h4>
+                                    <span class="px-3 py-1 text-xs font-mono text-neonPink border border-neonPink/30 rounded-full bg-neonPink/5">2023 - 2027</span>
+                                </div>
+                                
+                                <p class="text-electricBlue font-display text-lg mb-4">Rajiv Gandhi Institute of Technology</p>
+                                
+                                <p class="text-slate-400 leading-relaxed text-sm">
+                                    Major in <strong class="text-slate-200">Artificial Intelligence & Data Science</strong>.
+                                </p>
+                                
+                                <div class="mt-4 pt-4 border-t border-white/5 flex gap-4 text-xs font-mono text-slate-500">
+                                    <span><i class="fas fa-star text-yellow-500 mr-1"></i> CGPA: 9.43 / 10 (Till Sem 4)</span>
+                                </div>
+                            </div>
+                        </div>
+
+                        <div class="relative group">
+                            <div class="absolute -left-[41px] top-1 w-5 h-5 rounded-full bg-navy border-2 border-electricBlue shadow-[0_0_10px_rgba(59,130,246,0.5)] group-hover:scale-125 transition-transform duration-300"></div>
+                            
+                            <div class="p-8 rounded-2xl bg-glass border border-white/5 hover:border-electricBlue/40 transition-all duration-300 hover:shadow-[0_0_30px_rgba(59,130,246,0.1)] group-hover:-translate-y-1">
+                                <div class="flex justify-between items-start flex-wrap gap-2 mb-2">
+                                    <h4 class="text-xl font-bold text-white">Higher Secondary (Science)</h4>
+                                    <span class="px-3 py-1 text-xs font-mono text-electricBlue border border-electricBlue/30 rounded-full bg-electricBlue/5">2021 - 2023</span>
+                                </div>
+                                
+                                <p class="text-slate-400 text-sm">
+                                    Focused on PCM and Computer Science foundation. <br>Built a strong foundation in analytical thinking, problem-solving, and core computer science concepts that led to engineering in AI & Data Science.
+                                </p>
+                            </div>
+                        </div>
+
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <section id="projects" class="page-section hidden pt-10 pb-32">
+             <button onclick="navigateTo('home')" class="mb-12 font-mono text-sm text-electricBlue hover:text-white flex items-center gap-2 transition-colors">
+                <i class="fas fa-chevron-left"></i> GO_BACK( )
+            </button>
+
+            <div class="max-w-6xl mx-auto">
+                <h2 class="reveal text-5xl md:text-7xl font-display font-bold mb-16 text-white leading-tight">
+                     ENGINEERED <span class="text-transparent bg-clip-text bg-gradient-to-r from-electricBlue to-neonPink">PROJECTS</span><br>
+                    ARCHIVE.
+                </h2>
+                <div class="grid grid-cols-1 md:grid-cols-2 gap-12">
+                    <!-- LevelUp Blogs -->
+                        <div class="reveal st-1 group relative bg-navy rounded-2xl overflow-hidden border border-white/10 hover:border-electricBlue/80 transition-all duration-500 shadow-xl hover:shadow-[0_0_40px_rgba(59,130,246,0.3)]">
+                            <div class="h-64 relative overflow-hidden bg-deepPurple/50">
+                                <div class="absolute inset-0 bg-circuit-pattern opacity-40 mix-blend-overlay pointer-events-none z-10"></div>
+                                <div class="absolute inset-0 bg-gradient-to-t from-navy via-transparent to-transparent opacity-90 z-0"></div>
+                                <div class="absolute top-4 left-4 font-mono text-xs text-electricBlue/80 tracking-widest">PRODUCT SYSTEM</div>
+                                <div class="absolute bottom-6 left-6 z-30">
+                                    <i class="fas fa-newspaper text-5xl text-electricBlue drop-shadow-[0_0_10px_rgba(59,130,246,0.8)]"></i>
+                                </div>
+                                <div class="absolute top-4 right-4 font-mono text-xs text-electricBlue/60 border border-electricBlue/30 px-2 py-1 rounded">ID: #Prod-01</div>
+                            </div>
+                            <div class="p-8 relative z-10 bg-navy/90 backdrop-blur-lg">
+                                <h3 class="text-2xl font-display font-bold text-white mb-3 group-hover:text-electricBlue transition-colors">LevelUp Blogs – Subscription Platform</h3>
+                                
+                                <div class="text-slate-400 mb-6 leading-relaxed overflow-hidden max-h-24 group-hover:max-h-[500px] transition-[max-height] duration-500 ease-in-out">
+                                    <p>A full-scale blogging platform designed for content creators and readers. It features a clean, scalable architecture with role-based access control.</p>
+                                    <ul class="mt-4 space-y-1 list-disc list-inside text-sm text-slate-300">
+                                        <li>Role-based access & Editorial workflow</li>
+                                        <li>Subscription payments via Razorpay</li>
+                                        <li>User Analytics dashboard</li>
+                                    </ul>
+                                </div>
+
+                                <div class="flex flex-wrap gap-3 mb-8 font-mono text-xs uppercase">
+                                    <span class="px-3 py-1 bg-electricBlue/10 text-electricBlue border border-electricBlue/30 rounded-full">Django</span>
+                                    <span class="px-3 py-1 bg-electricBlue/10 text-electricBlue border border-electricBlue/30 rounded-full">PostgreSQL</span>
+                                    <span class="px-3 py-1 bg-electricBlue/10 text-electricBlue border border-electricBlue/30 rounded-full">Razorpay</span>
+                                </div>
+                                <div class="flex gap-4 font-display font-bold mb-4">
+                                    <a href="#projects" class="flex-1 text-center py-3 bg-electricBlue text-white rounded hover:bg-blue-600 transition-all">LIVE SOON</a>
+                                    <a href="https://www.linkedin.com/posts/vivek-jain-007258288_django-webdevelopment-backenddevelopment-activity-7411761577743491073-G0cF?utm_source=social_share_send&utm_medium=member_desktop_web&rcm=ACoAAEXN4wcBajiSBaugWX2CXU11YDr8-MSuBxo" target="_blank" rel="noopener noreferrer" class="flex-1 text-center py-3 border border-white/20 hover:border-white rounded text-white transition-all">Update</a>
+                                </div>
+                                <p class="text-xs text-slate-500 flex items-center gap-2"><i class="fas fa-lock"></i> Codebase is private.</p>
+                            </div>
+                        </div>
+                    <!-- Bafna Steel Centre -->
+                        <div class="reveal st-2 group relative bg-navy rounded-2xl overflow-hidden border border-white/10 hover:border-neonPink/80 transition-all duration-500 shadow-xl hover:shadow-[0_0_40px_rgba(236,72,153,0.3)]">
+                            <div class="h-64 relative overflow-hidden bg-deepPurple/50">
+                                <div class="absolute inset-0 bg-circuit-pattern opacity-40 mix-blend-overlay pointer-events-none z-10"></div>
+                                <div class="absolute inset-0 bg-gradient-to-t from-navy via-transparent to-transparent opacity-90 z-0"></div>
+                                <div class="absolute top-4 left-4 font-mono text-xs text-electricBlue/80 tracking-widest">CLIENT SYSTEM</div>
+                                <div class="absolute bottom-6 left-6 z-30">
+                                    <i class="fas fa-industry text-5xl text-neonPink drop-shadow-[0_0_10px_rgba(236,72,153,0.8)]"></i>
+                                </div>
+                                <div class="absolute top-4 right-4 font-mono text-xs text-neonPink/60 border border-neonPink/30 px-2 py-1 rounded">ID: #Biz-02</div>
+                            </div>
+                            <div class="p-8 relative z-10 bg-navy/90 backdrop-blur-lg">
+                                <h3 class="text-2xl font-display font-bold text-white mb-3 group-hover:text-neonPink transition-colors">Bafna Steel Centre – Business Lead System</h3>
+                                
+                                <div class="text-slate-400 mb-6 leading-relaxed overflow-hidden max-h-24 group-hover:max-h-[500px] transition-[max-height] duration-500 ease-in-out">
+                                    <p>A professional business website built for a wholesale steel distributor. It streamlines operations by handling product inquiries and automating customer support.</p>
+                                    <ul class="mt-4 space-y-1 list-disc list-inside text-sm text-slate-300">
+                                        <li>Comprehensive Product Listings</li>
+                                        <li>Automated Inquiry Handling</li>
+                                        <li>AI-Powered Chatbot Integration</li>
+                                    </ul>
+                                </div>
+
+                                <div class="flex flex-wrap gap-3 mb-8 font-mono text-xs uppercase">
+                                    <span class="px-3 py-1 bg-neonPink/10 text-neonPink border border-neonPink/30 rounded-full">Django</span>
+                                    <span class="px-3 py-1 bg-neonPink/10 text-neonPink border border-neonPink/30 rounded-full">Cloudinary</span>
+                                    <span class="px-3 py-1 bg-neonPink/10 text-neonPink border border-neonPink/30 rounded-full">AI Chatbot</span>
+                                </div>
+                                <div class="flex gap-4 font-display font-bold mb-4">
+                                    <a href="https://docs.google.com/document/d/1jooFjndKUucXr2qRBMxlEDiMjfFmZNOlf0MaWERWEXA/edit?usp=sharing" target="_blank" rel="noopener noreferrer" class="flex-1 text-center py-3 bg-neonPink text-white rounded hover:bg-pink-600 transition-all">Overview</a>
+                                    <a href="https://www.linkedin.com/posts/vivek-jain-007258288_fullstackdevelopment-django-ecommerce-activity-7412051102394781696-8jFS?utm_source=social_share_send&utm_medium=member_desktop_web&rcm=ACoAAEXN4wcBajiSBaugWX2CXU11YDr8-MSuBxo" target="_blank" rel="noopener noreferrer" class="flex-1 text-center py-3 border border-white/20 hover:border-white rounded text-white transition-all">Update</a>
+                                </div>
+                                <p class="text-xs text-slate-500 flex items-center gap-2"><i class="fas fa-lock"></i> Codebase is private.</p>
+                            </div>
+                        </div>
+                    <!-- Visionary Projects -->
+                        <div class="reveal st-1 group relative bg-navy rounded-2xl overflow-hidden border border-white/10 hover:border-electricBlue/80 transition-all duration-500 shadow-xl hover:shadow-[0_0_40px_rgba(59,130,246,0.3)]">
+                            <div class="h-64 relative overflow-hidden bg-deepPurple/50">
+                                <div class="absolute inset-0 bg-circuit-pattern opacity-40 mix-blend-overlay pointer-events-none z-10"></div>
+                                <div class="absolute inset-0 bg-gradient-to-t from-navy via-transparent to-transparent opacity-90 z-0"></div>
+                                <div class="absolute top-4 left-4 font-mono text-xs text-electricBlue/80 tracking-widest">FOUNDER PROJECT</div>
+                                <div class="absolute bottom-6 left-6 z-30">
+                                    <i class="fas fa-rocket text-5xl text-electricBlue drop-shadow-[0_0_10px_rgba(59,130,246,0.8)]"></i>
+                                </div>
+                                <div class="absolute top-4 right-4 font-mono text-xs text-electricBlue/60 border border-electricBlue/30 px-2 py-1 rounded">ID: #FOUNDER-01</div>
+                            </div>
+                            <div class="p-8 relative z-10 bg-navy/90 backdrop-blur-lg">
+                                <h3 class="text-2xl font-display font-bold text-white mb-3 group-hover:text-electricBlue transition-colors">Visionary Projects – Digital Solutions</h3>
+                                <div class="text-slate-400 mb-6 leading-relaxed overflow-hidden max-h-24 group-hover:max-h-[500px] transition-[max-height] duration-500 ease-in-out">
+                                    <p>A founder-led digital venture focused on building scalable web products, SaaS systems, and AI-driven solutions. Serving as a launchpad for real-world products like Bafna Steel and various MVPs.</p>
+                                    <ul class="mt-4 space-y-1 list-disc list-inside text-sm text-slate-300">
+                                        <li>Product strategy & System architecture</li>
+                                        <li>Full-stack development & Scalability</li>
+                                        <li>Marketing and Social Media Services</li>
+                                    </ul>
+                                </div>
+                                <div class="flex flex-wrap gap-3 mb-8 font-mono text-xs uppercase">
+                                    <span class="px-3 py-1 bg-electricBlue/10 text-electricBlue border border-electricBlue/30 rounded-full">Django</span>
+                                    <span class="px-3 py-1 bg-electricBlue/10 text-electricBlue border border-electricBlue/30 rounded-full">PostgreSQL</span>
+                                    <span class="px-3 py-1 bg-electricBlue/10 text-electricBlue border border-electricBlue/30 rounded-full">JS</span>
+                                </div>
+                                <div class="flex gap-4 font-display font-bold mb-4">
+                                    <a href="https://visionaryprojects.up.railway.app/" target="_blank" rel="noopener noreferrer" class="flex-1 text-center py-3 bg-electricBlue text-white rounded hover:bg-blue-600 transition-all">Live</a>
+                                    <a href="https://wa.me/9969661934?text=Hii, I wanted to know about your services" target="_blank" rel="noopener noreferrer" class="flex-1 text-center py-3 border border-white/20 hover:border-white rounded text-white transition-all">Get in Touch</a>
+                                </div>
+                                <p class="text-xs text-slate-500 flex items-center gap-2"><i class="fas fa-lock"></i> Some systems are private.</p>
+                            </div>
+                        </div>
+                    <!-- Personal Portfolio -->
+                        <div class="reveal st-2 group relative bg-navy rounded-2xl overflow-hidden border border-white/10 hover:border-neonPink/80 transition-all duration-500 shadow-xl hover:shadow-[0_0_40px_rgba(236,72,153,0.3)]">
+                            <div class="h-64 relative overflow-hidden bg-deepPurple/50">
+                                <div class="absolute inset-0 bg-circuit-pattern opacity-40 mix-blend-overlay pointer-events-none z-10"></div>
+                                <div class="absolute inset-0 bg-gradient-to-t from-navy via-transparent to-transparent opacity-90 z-0"></div>
+                                <div class="absolute top-4 left-4 font-mono text-xs text-electricBlue/80 tracking-widest">PERSONAL BUILD</div>
+                                <div class="absolute bottom-6 left-6 z-30">
+                                    <i class="fas fa-user-astronaut text-5xl text-neonPink drop-shadow-[0_0_10px_rgba(236,72,153,0.8)]"></i>
+                                </div>
+                                <div class="absolute top-4 right-4 font-mono text-xs text-neonPink/60 border border-neonPink/30 px-2 py-1 rounded">ID: #Pers-03</div>
+                            </div>
+                            <div class="p-8 relative z-10 bg-navy/90 backdrop-blur-lg">
+                                <h3 class="text-2xl font-display font-bold text-white mb-3 group-hover:text-neonPink transition-colors">Personal Portfolio – Developer Showcase</h3>
+                                <div class="text-slate-400 mb-6 leading-relaxed overflow-hidden max-h-24 group-hover:max-h-[500px] transition-[max-height] duration-500 ease-in-out">
+                                    <p>Designed and developed a modern personal portfolio to showcase projects and skills. Built with a focus on high-performance UI, clean code structure, and a builder mindset.</p>
+                                    <ul class="mt-4 space-y-1 list-disc list-inside text-sm text-slate-300">
+                                        <li>Responsive Mobile-First Design</li>
+                                        <li>Advanced CSS Animations</li>
+                                        <li>Clean Component Architecture</li>
+                                    </ul>
+                                </div>
+                                <div class="flex flex-wrap gap-3 mb-8 font-mono text-xs uppercase">
+                                    <span class="px-3 py-1 bg-neonPink/10 text-neonPink border border-neonPink/30 rounded-full">Tailwind</span>
+                                    <span class="px-3 py-1 bg-neonPink/10 text-neonPink border border-neonPink/30 rounded-full">HTML5</span>
+                                    <span class="px-3 py-1 bg-neonPink/10 text-neonPink border border-neonPink/30 rounded-full">JS</span>
+                                </div>
+                                <div class="flex gap-4 font-display font-bold mb-4">
+                                    <a href="#" class="flex-1 text-center py-3 bg-neonPink text-white rounded hover:bg-pink-600 transition-all">Current</a>
+                                    <a href="https://vivek-jain-17.github.io/old-Portfolio/" target="_blank" rel="noopener noreferrer" class="flex-1 text-center py-3 border border-white/20 hover:border-white rounded text-white transition-all">Previous</a>
+                                </div>
+                                <p class="text-xs text-slate-500 flex items-center gap-2"><i class="fas fa-check-circle"></i> Maintained personally.</p>
+                            </div>
+                        </div>
+                    <!-- Alien Invasion Game -->
+                        <div class="reveal st-2 group relative bg-navy rounded-2xl overflow-hidden border border-white/10 hover:border-neonPink/80 transition-all duration-500 shadow-xl hover:shadow-[0_0_40px_rgba(236,72,153,0.3)]">
+                            <div class="h-64 relative overflow-hidden bg-deepPurple/50">
+                                <div class="absolute inset-0 bg-circuit-pattern opacity-40 mix-blend-overlay pointer-events-none z-10"></div>
+                                <div class="absolute inset-0 bg-gradient-to-t from-navy via-transparent to-transparent opacity-90 z-0"></div>
+                                <div class="absolute top-4 left-4 font-mono text-xs text-electricBlue/80 tracking-widest">LEARNING PROJECT</div>
+                                <div class="absolute bottom-6 left-6 z-30">
+                                    <i class="fas fa-gamepad text-5xl text-neonPink drop-shadow-[0_0_10px_rgba(236,72,153,0.8)]"></i>
+                                </div>
+                                <div class="absolute top-4 right-4 font-mono text-xs text-neonPink/60 border border-neonPink/30 px-2 py-1 rounded">ID: #Learn-04</div>
+                            </div>
+                            <div class="p-8 relative z-10 bg-navy/90 backdrop-blur-lg">
+                                <h3 class="text-2xl font-display font-bold text-white mb-3 group-hover:text-neonPink transition-colors">Alien Invasion – Python Arcade Game</h3>
+                                <div class="text-slate-400 mb-6 leading-relaxed overflow-hidden max-h-24 group-hover:max-h-[500px] transition-[max-height] duration-500 ease-in-out">
+                                    <p>A classic arcade-style game developed to strengthen core programming concepts. Features smooth player controls, automated enemy movement, and real-time collision detection.</p>
+                                    <ul class="mt-4 space-y-1 list-disc list-inside text-sm text-slate-300">
+                                        <li>Object-Oriented Design</li>
+                                        <li>Game Loop Logic</li>
+                                        <li>Score Tracking System</li>
+                                    </ul>
+                                </div>
+                                <div class="flex flex-wrap gap-3 mb-8 font-mono text-xs uppercase">
+                                    <span class="px-3 py-1 bg-neonPink/10 text-neonPink border border-neonPink/30 rounded-full">Python</span>
+                                    <span class="px-3 py-1 bg-neonPink/10 text-neonPink border border-neonPink/30 rounded-full">PyGame</span>
+                                </div>
+                                <div class="flex gap-4 font-display font-bold mb-4">
+                                    <a href="https://github.com/vivek-jain-17/Alien-Attack" target="_blank" rel="noopener noreferrer" class="flex-1 text-center py-3 bg-neonPink text-white rounded hover:bg-pink-600 transition-all">Github</a>
+                                    <a href="#" class="flex-1 text-center py-3 border border-white/20 hover:border-white rounded text-white transition-all">Details</a>
+                                </div>
+                                <p class="text-xs text-slate-500 flex items-center gap-2"><i class="fas fa-book"></i> Educational project.</p>
+                            </div>
+                        </div>
+                    <!-- Frontend Lab -->
+                        <div class="reveal st-1 group relative bg-navy rounded-2xl overflow-hidden border border-white/10 hover:border-electricBlue/80 transition-all duration-500 shadow-xl hover:shadow-[0_0_40px_rgba(59,130,246,0.3)]">
+                            <div class="h-64 relative overflow-hidden bg-deepPurple/50">
+                                <div class="absolute inset-0 bg-circuit-pattern opacity-40 mix-blend-overlay pointer-events-none z-10"></div>
+                                <div class="absolute inset-0 bg-gradient-to-t from-navy via-transparent to-transparent opacity-90 z-0"></div>
+                                <div class="absolute top-4 left-4 font-mono text-xs text-electricBlue/80 tracking-widest">FRONTEND LAB</div>
+                                <div class="absolute bottom-6 left-6 z-30">
+                                    <i class="fas fa-layer-group text-5xl text-electricBlue drop-shadow-[0_0_10px_rgba(59,130,246,0.8)]"></i>
+                                </div>
+                                <div class="absolute top-4 right-4 font-mono text-xs text-electricBlue/60 border border-electricBlue/30 px-2 py-1 rounded">ID: #Exp-05</div>
+                            </div>
+                            <div class="p-8 relative z-10 bg-navy/90 backdrop-blur-lg">
+                                <h3 class="text-2xl font-display font-bold text-white mb-3 group-hover:text-electricBlue transition-colors">Frontend Projects Collection</h3>
+                                <div class="text-slate-400 mb-6 leading-relaxed overflow-hidden max-h-24 group-hover:max-h-[500px] transition-[max-height] duration-500 ease-in-out">
+                                    <p>A collection of frontend experiments built to master UI design, layout structuring, and responsiveness.</p>
+                                    <ul class="mt-4 space-y-1 list-disc list-inside text-sm text-slate-300">
+                                        <li>Landing Pages & UI Components</li>
+                                        <li>Layout Experiments</li>
+                                        <li>Interactive Demos</li>
+                                    </ul>
+                                </div>
+                                <div class="flex flex-wrap gap-3 mb-8 font-mono text-xs uppercase">
+                                    <span class="px-3 py-1 bg-electricBlue/10 text-electricBlue border border-electricBlue/30 rounded-full">HTML5</span>
+                                    <span class="px-3 py-1 bg-electricBlue/10 text-electricBlue border border-electricBlue/30 rounded-full">CSS3</span>
+                                    <span class="px-3 py-1 bg-electricBlue/10 text-electricBlue border border-electricBlue/30 rounded-full">JS</span>
+                                </div>
+                                <div class="flex gap-4 font-display font-bold mb-4">
+                                    <a href="https://vivek-jain-17.github.io/aether/" target="_blank" rel="noopener noreferrer" class="flex-1 text-center py-3 bg-electricBlue text-white rounded hover:bg-blue-600 transition-all">Aether</a>
+                                    <a href="https://vivek-jain-17.github.io/velvet-crumb/" target="_blank" rel="noopener noreferrer" class="flex-1 text-center py-3 border border-white/20 hover:border-white rounded text-white transition-all">Velvet</a>
+                                </div>
+                                <p class="text-xs text-slate-500 flex items-center gap-2"><i class="fas fa-flask"></i> Experimental Builds.</p>
+                            </div>
+                        </div>
+                    <!-- Valentine Line App -->
+                        <div class="reveal st-2 group relative bg-navy rounded-2xl overflow-hidden border border-white/10 hover:border-neonPink/80 transition-all duration-500 shadow-xl hover:shadow-[0_0_40px_rgba(236,72,153,0.3)]">
+                            <div class="h-64 relative overflow-hidden bg-deepPurple/50">
+                                <div class="absolute inset-0 bg-circuit-pattern opacity-40 mix-blend-overlay pointer-events-none z-10"></div>
+                                <div class="absolute inset-0 bg-gradient-to-t from-navy via-transparent to-transparent opacity-90 z-0"></div>
+                                <div class="absolute top-4 left-4 font-mono text-xs text-electricBlue/80 tracking-widest">INTERACTIVE APP</div>
+                                <div class="absolute bottom-6 left-6 z-30">
+                                    <i class="fas fa-heart text-5xl text-neonPink drop-shadow-[0_0_10px_rgba(236,72,153,0.8)]"></i>
+                                </div>
+                                <div class="absolute top-4 right-4 font-mono text-xs text-neonPink/60 border border-neonPink/30 px-2 py-1 rounded">ID: #App-06</div>
+                            </div>
+                            <div class="p-8 relative z-10 bg-navy/90 backdrop-blur-lg">
+                                <h3 class="text-2xl font-display font-bold text-white mb-3 group-hover:text-neonPink transition-colors">Valentine Line – Compliment App</h3>
+                                <div class="text-slate-400 mb-6 leading-relaxed overflow-hidden max-h-24 group-hover:max-h-[500px] transition-[max-height] duration-500 ease-in-out">
+                                    <p>A playful Django-based web application that generates personalized compliments. Users can generate unique messages and share them via custom links.</p>
+                                    <ul class="mt-4 space-y-1 list-disc list-inside text-sm text-slate-300">
+                                        <li>Dynamic Content Generation</li>
+                                        <li>Shareable Unique URLs</li>
+                                        <li>Engaging User Interface</li>
+                                    </ul>
+                                </div>
+                                <div class="flex flex-wrap gap-3 mb-8 font-mono text-xs uppercase">
+                                    <span class="px-3 py-1 bg-neonPink/10 text-neonPink border border-neonPink/30 rounded-full">Django</span>
+                                    <span class="px-3 py-1 bg-neonPink/10 text-neonPink border border-neonPink/30 rounded-full">Render</span>
+                                </div>
+                                <div class="flex gap-4 font-display font-bold mb-4">
+                                    <a href="https://valentine-line.onrender.com/" target="_blank" rel="noopener noreferrer" class="flex-1 text-center py-3 bg-neonPink text-white rounded hover:bg-pink-600 transition-all">Live Demo</a>
+                                    <a href="https://github.com/vivek-jain-17/Valentine_Line" target="_blank" rel="noopener noreferrer" class="flex-1 text-center py-3 border border-white/20 hover:border-white rounded text-white transition-all">Github</a>
+                                </div>
+                                <p class="text-xs text-slate-500 flex items-center gap-2"><i class="fas fa-globe"></i> Live on Render.</p>
+                            </div>
+                        </div>
+                    <!-- E-CELL Website -->
+                        <div class="reveal st-1 group relative bg-navy rounded-2xl overflow-hidden border border-white/10 hover:border-electricBlue/80 transition-all duration-500 shadow-xl hover:shadow-[0_0_40px_rgba(59,130,246,0.3)]">
+                            <div class="h-64 relative overflow-hidden bg-deepPurple/50">
+                                <div class="absolute inset-0 bg-circuit-pattern opacity-40 mix-blend-overlay pointer-events-none z-10"></div>
+                                <div class="absolute inset-0 bg-gradient-to-t from-navy via-transparent to-transparent opacity-90 z-0"></div>
+                                <div class="absolute top-4 left-4 font-mono text-xs text-electricBlue/80 tracking-widest">IN DEVELOPMENT</div>
+                                <div class="absolute bottom-6 left-6 z-30">
+                                    <i class="fas fa-bullseye text-5xl text-electricBlue drop-shadow-[0_0_10px_rgba(59,130,246,0.8)]"></i>
+                                </div>
+                                <div class="absolute top-4 right-4 font-mono text-xs text-electricBlue/60 border border-electricBlue/30 px-2 py-1 rounded">ID: #Dev-07</div>
+                            </div>
+                            <div class="p-8 relative z-10 bg-navy/90 backdrop-blur-lg">
+                                <h3 class="text-2xl font-display font-bold text-white mb-3 group-hover:text-electricBlue transition-colors">E-Cell Website – Official Platform</h3>
+                                <div class="text-slate-400 mb-6 leading-relaxed overflow-hidden max-h-24 group-hover:max-h-[500px] transition-[max-height] duration-500 ease-in-out">
+                                    <p>The official platform for the Entrepreneurship Cell, currently under active development. It will feature event listings, team showcases, and streamlined communication channels.</p>
+                                    <ul class="mt-4 space-y-1 list-disc list-inside text-sm text-slate-300">
+                                        <li>Scalable React/Next.js Architecture</li>
+                                        <li>Event Management System</li>
+                                        <li>Team Directory</li>
+                                    </ul>
+                                </div>
+                                <div class="flex flex-wrap gap-3 mb-8 font-mono text-xs uppercase">
+                                    <span class="px-3 py-1 bg-electricBlue/10 text-electricBlue border border-electricBlue/30 rounded-full">React</span>
+                                    <span class="px-3 py-1 bg-electricBlue/10 text-electricBlue border border-electricBlue/30 rounded-full">Next.js</span>
+                                </div>
+                                <div class="flex gap-4 font-display font-bold mb-4">
+                                    <a href="#" class="flex-1 text-center py-3 bg-electricBlue text-white rounded hover:bg-blue-600 transition-all opacity-50 cursor-not-allowed">Coming Soon</a>
+                                    <a href="#" class="flex-1 text-center py-3 border border-white/20 hover:border-white rounded text-white transition-all">Status</a>
+                                </div>
+                                <p class="text-xs text-slate-500 flex items-center gap-2"><i class="fas fa-tools"></i> Under Construction.</p>
+                            </div>
+                        </div>
+
+                    </div>
+                    
+                </div>
+            </div>
+        </section>
+
+        <section id="experience" class="page-section hidden pt-10 pb-32">
+              <button onclick="navigateTo('home')" class="mb-12 font-mono text-sm text-electricBlue hover:text-white flex items-center gap-2 transition-colors">
+                <i class="fas fa-chevron-left"></i> GO_BACK( )
+            </button>
+            <div class="max-w-4xl mx-auto">
+                 <h2 class="reveal text-5xl md:text-7xl font-display font-bold mb-16 text-white leading-tight">
+                    CAREER <span class="text-transparent bg-clip-text bg-gradient-to-r from-electricBlue to-neonPink">LOGS</span>.
+                </h2>
+                <div class="space-y-12 border-l-2 border-electricBlue/30 ml-4 pl-10 relative">
+                    <div class="reveal st-1 relative">
+                        <div class="absolute -left-[51px] top-2 w-6 h-6 rounded-full bg-navy border-4 border-electricBlue shadow-[0_0_20px_rgba(59,130,246,0.6)]"></div>
+                        <h3 class="text-3xl font-display font-bold text-white">Co-Founder</h3>
+                        <p class="font-mono text-electricBlue mb-4">Visionary Projects • JAN 2024 - Present</p>
+                        <ul class="list-disc list-outside ml-4 text-slate-400 space-y-3 leading-relaxed">
+                            <li>Co-founded a digital venture focused on building scalable web platforms, internal tools, Social Media Services and MVPs for startups and small businesses.</li>
+                            <li>Worked closely on product planning, feature prioritization, and translating business requirements into production-ready systems.</li>
+                        </ul>
+                    </div>
+                    <div class="reveal st-1 relative">
+                        <div class="absolute -left-[51px] top-2 w-6 h-6 rounded-full bg-navy border-4 border-electricBlue shadow-[0_0_20px_rgba(59,130,246,0.6)]"></div>
+                        <h3 class="text-3xl font-display font-bold text-white">Web Developer Intern</h3>
+                        <p class="font-mono text-electricBlue mb-4">Levelup Eventa • Dec 2025 - Present</p>
+                        <ul class="list-disc list-outside ml-4 text-slate-400 space-y-3 leading-relaxed">
+                            <li>Worked on multiple web applications and internal projects using Django and modern web technologies, implementing RBAC, database schemas, APIs, and integrations</li>
+                        </ul>
+                    </div>
+                    <div class="reveal st-2 relative">
+                        <div class="absolute -left-[51px] top-2 w-6 h-6 rounded-full bg-navy border-4 border-neonPink shadow-[0_0_20px_rgba(236,72,153,0.6)]"></div>
+                        <h3 class="text-3xl font-display font-bold text-white">Web Developer Intern</h3>
+                        <p class="font-mono text-neonPink mb-4">Unified Mentor • APR 2024 - JUN 2023</p>
+                        <ul class="list-disc list-outside ml-4 text-slate-400 space-y-3 leading-relaxed">
+                            <li>Learned and Implemented Web Technologies HTML, CSS & JavaScript concepts with completion of three projects.</li>
+                        </ul>
+                    </div>
+                    <div class="reveal st-2 relative">
+                        <div class="absolute -left-[51px] top-2 w-6 h-6 rounded-full bg-navy border-4 border-neonPink shadow-[0_0_20px_rgba(236,72,153,0.6)]"></div>
+                        <h3 class="text-3xl font-display font-bold text-white">AI & ML Intern</h3>
+                        <p class="font-mono text-neonPink mb-4">INTRAINZ • JAN 2024 - JUL 2023</p>
+                        <ul class="list-disc list-outside ml-4 text-slate-400 space-y-3 leading-relaxed">
+                            <li>Learned and Implemented AI and Machine learning concepts with completion of two research projects.</li>
+                        </ul>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <section id="extracurricular" class="page-section hidden pt-10 pb-32">
+            <button onclick="navigateTo('home')" class="mb-12 font-mono text-sm text-electricBlue hover:text-white flex items-center gap-2 transition-colors">
+                <i class="fas fa-chevron-left"></i> GO_BACK( )
+            </button>
+
+            <div class="max-w-6xl mx-auto">
+                <h2 class="reveal text-5xl md:text-7xl font-display font-bold mb-16 text-white leading-tight">
+                    SIDE <span class="text-transparent bg-clip-text bg-gradient-to-r from-purple-400 to-indigo-500">QUESTS</span>.
+                </h2>
+
+                <div class="grid grid-cols-1 md:grid-cols-2 gap-8">
+                    
+                    <div class="reveal st-1 p-10 bg-glass border border-white/5 rounded-2xl hover:border-neonPink/50 transition-all duration-300">
+                        <h3 class="text-3xl font-bold text-white mb-8 flex items-center gap-3">
+                            <i class="fas fa-chess-king text-neonPink"></i> Organizational Leadership
+                        </h3>
+                        
+                        <div class="space-y-10">
+                            <div class="relative pl-6 border-l-2 border-neonPink/30">
+                                <div class="absolute -left-[9px] top-0 w-4 h-4 rounded-full bg-navy border-2 border-neonPink"></div>
+                                <h4 class="text-xl font-bold text-white">Jt. General Secretary</h4>
+                                <div class="flex justify-between items-center mt-1 mb-2">
+                                    <span class="text-sm text-neonPink font-mono">E-Cell, RGIT</span>
+                                    <span class="text-xs text-slate-500 font-mono">Jul 2025 - Present</span>
+                                </div>
+                                <p class="text-slate-400 text-sm mb-2">Previously <strong>Web Head and Marketing team member</strong> (Sep '24 - Aug '25).</p>
+                                <ul class="list-disc list-outside ml-4 text-slate-400 text-sm leading-relaxed space-y-1">
+                                    <li>Leading a team of <strong>50+ members</strong> to foster entrepreneurship.</li>
+                                    <li>Organized 5+ major events including Seminars and Startup-based competitions.</li>
+                                    <li>Coordinated with industry mentors to drive high-engagement programs.</li>
+                                </ul>
+                            </div>
+
+                            <div class="relative pl-6 border-l-2 border-neonPink/30">
+                                <div class="absolute -left-[9px] top-0 w-4 h-4 rounded-full bg-navy border-2 border-neonPink"></div>
+                                <h4 class="text-xl font-bold text-white">Vice President</h4>
+                                <div class="flex justify-between items-center mt-1 mb-2">
+                                    <span class="text-sm text-neonPink font-mono">The SOCH, RGIT</span>
+                                    <span class="text-xs text-slate-500 font-mono">Aug 2025 - Present</span>
+                                </div>
+                                <p class="text-slate-400 text-sm mb-2">Previously <strong>Editorial Head</strong> (Sep '24 - Aug '25).</p>
+                                <ul class="list-disc list-outside ml-4 text-slate-400 text-sm leading-relaxed space-y-1">
+                                    <li>Leading <strong>40+ members</strong> in social impact initiatives.</li>
+                                    <li>Organized Donation Drives, Blood Donation Camps, and Eye Checkups.</li>
+                                    <li>Collaborating with NGOs to execute impactful community service.</li>
+                                </ul>
+                            </div>
+
+                            <div class="relative pl-6 border-l-2 border-neonPink/30">
+                                <div class="absolute -left-[9px] top-0 w-4 h-4 rounded-full bg-navy border-2 border-neonPink"></div>
+                                <h4 class="text-xl font-bold text-white">Asst. Marketing Secretary</h4>
+                                <div class="flex justify-between items-center mt-1 mb-2">
+                                    <span class="text-sm text-neonPink font-mono">RGIT CRID</span>
+                                    <span class="text-xs text-slate-500 font-mono">Aug 2025 - Present</span>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+
+                    <div class="reveal st-2 p-10 bg-glass border border-white/5 rounded-2xl hover:border-electricBlue/50 transition-all duration-300">
+                        <h3 class="text-3xl font-bold text-white mb-8 flex items-center gap-3">
+                            <i class="fas fa-code-branch text-electricBlue"></i> Impact & Mentorship
+                        </h3>
+                        
+                        <div class="space-y-10">
+                            <div class="relative pl-6 border-l-2 border-electricBlue/30">
+                                <div class="absolute -left-[9px] top-0 w-4 h-4 rounded-full bg-navy border-2 border-electricBlue"></div>
+                                <h4 class="text-xl font-bold text-white">Project Head</h4>
+                                <div class="flex justify-between items-center mt-1 mb-2">
+                                    <span class="text-sm text-electricBlue font-mono">DMX, RGIT</span>
+                                    <span class="text-xs text-slate-500 font-mono">Aug 2024 - Apr 2025</span>
+                                </div>
+                                <p class="text-slate-400 text-sm leading-relaxed">
+                                    Headed the student project division. Responsible for assigning, guiding, and supervising technical projects for peer groups.
+                                </p>
+                            </div>
+
+                            <div class="relative pl-6 border-l-2 border-electricBlue/30">
+                                <div class="absolute -left-[9px] top-0 w-4 h-4 rounded-full bg-navy border-2 border-electricBlue"></div>
+                                <h4 class="text-xl font-bold text-white">Event Organizer & Host</h4>
+                                <div class="flex justify-between items-center mt-1 mb-2">
+                                    <span class="text-sm text-electricBlue font-mono">Technical Competitions</span>
+                                    <span class="text-xs text-slate-500 font-mono">March 2025</span>
+                                </div>
+                                <p class="text-slate-400 text-sm mb-2">Co-hosted and executed two technical events end-to-end, covering planning, execution, and hosting.</p>
+                                <ul class="list-disc list-outside ml-4 text-slate-400 text-sm leading-relaxed space-y-1">
+                                    <li><strong class="text-white">Hack-a-Quiz:</strong> A technical Quiz challenge.</li>
+                                    <li><strong class="text-white">Binary Courtroom:</strong> A debate-style tech competition.</li>
+                                </ul>
+                            </div>
+
+                            <div class="relative pl-6 border-l-2 border-electricBlue/30">
+                                <div class="absolute -left-[9px] top-0 w-4 h-4 rounded-full bg-navy border-2 border-electricBlue"></div>
+                                <h4 class="text-xl font-bold text-white">Academic Tutor</h4>
+                                <div class="flex justify-between items-center mt-1 mb-2">
+                                    <span class="text-sm text-electricBlue font-mono">Mathematics & Science</span>
+                                    <span class="text-xs text-slate-500 font-mono">Freelance</span>
+                                </div>
+                                <p class="text-slate-400 text-sm leading-relaxed">
+                                    Mentoring students from <strong>9th to 12th Grade</strong> focusing on structured problem-solving and concept clarity.<br> Specializing in simplifying complex concepts in Math and Science to improve academic performance.
+                                </p>
+                            </div>
+
+                        </div>
+                    </div>
+
+                </div>
+            </div>
+        </section>
+        
+        <section id="contact" class="py-20 border-t border-white/5 mt-20">
+            <div class="max-w-4xl mx-auto px-6 text-center">
+                <h2 class="text-3xl md:text-5xl font-display font-bold text-white mb-6">Ready to <span class="text-electricBlue">Build?</span></h2>
+                
+                <a href="mailto:vivekvbafna29@gmail.com" class="inline-block px-10 py-4 bg-transparent border-2 border-electricBlue text-electricBlue font-bold rounded-lg hover:bg-electricBlue hover:text-white transition-all duration-300 transform hover:-translate-y-1 mb-12">
+                    Say Hello
+                </a>
+
+                <div class="flex justify-center gap-10 mb-12">
+                    <a href="https://github.com/vivek-jain-17" class="group flex flex-col items-center gap-2">
+                        <div class="w-12 h-12 rounded-full bg-white/5 flex items-center justify-center group-hover:bg-electricBlue transition-all duration-300">
+                            <i class="fab fa-github text-xl text-white"></i>
+                        </div>
+                        <span class="text-xs text-slate-500 group-hover:text-electricBlue transition-colors font-mono">GITHUB</span>
+                    </a>
+                    <a href="https://www.linkedin.com/in/vivek-jain-007258288/?utm_source=share&utm_campaign=share_via&utm_content=profile&utm_medium=android_app" class="group flex flex-col items-center gap-2">
+                        <div class="w-12 h-12 rounded-full bg-white/5 flex items-center justify-center group-hover:bg-blue-600 transition-all duration-300">
+                            <i class="fab fa-linkedin-in text-xl text-white"></i>
+                        </div>
+                        <span class="text-xs text-slate-500 group-hover:text-blue-600 transition-colors font-mono">LINKEDIN</span>
+                    </a>
+                    <a href="mailto:vivekvbafna29@gmail.com" class="group flex flex-col items-center gap-2">
+                        <div class="w-12 h-12 rounded-full bg-white/5 flex items-center justify-center group-hover:bg-neonPink transition-all duration-300">
+                            <i class="fas fa-envelope text-xl text-white"></i>
+                        </div>
+                        <span class="text-xs text-slate-500 group-hover:text-neonPink transition-colors font-mono">EMAIL</span>
+                    </a>
+                </div>
+
+                <footer class="text-slate-600 text-sm">
+                    <p>&copy; 2026 Vivek Jain. Crafted with code.</p>
+                </footer>
+            </div>
+        </section>
+
+    </main>
+    
+    <script src="script.js"></script>
+</body>
+</html>

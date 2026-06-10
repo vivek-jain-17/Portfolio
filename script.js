@@ -249,3 +249,44 @@ interactiveElements.forEach(el => {
         document.body.classList.remove('hovering');
     });
 });
+
+// =========================================
+// 🚀 DYNAMIC PROJECT FILTERING SYSTEM
+// =========================================
+function filterProjects(category) {
+    const cards = document.querySelectorAll('.project-card');
+    const buttons = document.querySelectorAll('.project-filter-btn');
+
+    // 1. Filter Tab Button Active Styles State Handle
+    buttons.forEach(btn => {
+        if (btn.getAttribute('data-filter') === category) {
+            btn.classList.add('text-white', 'bg-gradient-to-r', 'from-electricBlue', 'to-neonPink', 'font-bold', 'shadow-[0_0_15px_rgba(59,130,246,0.3)]');
+            btn.classList.remove('text-slate-400', 'bg-white/5');
+        } else {
+            btn.classList.remove('text-white', 'bg-gradient-to-r', 'from-electricBlue', 'to-neonPink', 'font-bold', 'shadow-[0_0_15px_rgba(59,130,246,0.3)]');
+            btn.classList.add('text-slate-400');
+        }
+    });
+
+    // 2. Project Cards Filtering Logic
+    cards.forEach(card => {
+        const cardCategory = card.getAttribute('data-category');
+        
+        if (category === 'all' || cardCategory === category) {
+            // Un-hide the filtered cards smoothly
+            card.style.display = 'block';
+            setTimeout(() => {
+                card.classList.add('active');
+                card.style.opacity = '1';
+                card.style.transform = 'translateY(0) scale(1)';
+            }, 50);
+        } else {
+            // Soft hide cards that don't match the query
+            card.style.opacity = '0';
+            card.style.transform = 'translateY(20px) scale(0.95)';
+            setTimeout(() => {
+                card.style.display = 'none';
+            }, 300); // Matches transitions
+        }
+    });
+}
